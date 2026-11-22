@@ -1,0 +1,22 @@
+.toast-banner {
+  position: fixed;
+  right: var(--space-6);
+  bottom: var(--space-6);
+  z-index: var(--z-toast);
+  display: flex;
+  align-items: center;
+  max-width: min(26rem, calc(100dvw - var(--space-10)));
+  min-height: var(--control-h-md);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--c-text-inverse);
+  word-break: break-word;
+  pointer-events: none;
+  background: var(--bg-control-primary);
+  border-radius: var(--radius-ctrl);
+  opacity: 0;
+}
+
+.toast-banner.show {
+  opacity: 1;
+}

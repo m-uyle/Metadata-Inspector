@@ -1,0 +1,97 @@
+:root {
+  /* =========================================================
+     1. PRIMITIVES (OKLCH — Warm neutral scale ΔL = 0.040 + Muted Danger)
+     ========================================================= */
+  --ink-900: oklch(0.165 0.002 80); /* Primary ink & CTA (WCAG AAA >16:1) */
+  --ink-600: oklch(0.425 0.0035 80); /* Secondary ink (WCAG AA >7.5:1) */
+  --ink-400: oklch(
+    0.515 0.003 80
+  ); /* Tertiary ink (WCAG AA >=4.8:1 on shell & sheet) */
+
+  --surface-100: oklch(0.988 0.0015 80); /* Sheet & active card */
+  --surface-200: oklch(0.948 0.0025 80); /* Shell & subtle fill */
+  --surface-300: oklch(0.908 0.0035 80); /* Tonal fill & hairlines */
+  --surface-400: oklch(0.868 0.004 80); /* Canvas backdrop & strong fill */
+  --surface-500: oklch(0.748 0.0045 80); /* Muted borders & scrollbar */
+
+  --danger-100: oklch(
+    0.908 0.024 28
+  ); /* Muted warm blush hover (ΔL=0.040 on shell) */
+  --danger-600: oklch(
+    0.49 0.105 28
+  ); /* Refined terracotta-red default (WCAG AA >5.2:1) */
+  --danger-700: oklch(
+    0.41 0.115 28
+  ); /* Deeper muted crimson hover (WCAG AA >7:1) */
+
+  --scrim-modal: color-mix(in oklch, var(--ink-900) 35%, transparent);
+  --scrim-overlay: color-mix(in oklch, var(--ink-900) 45%, transparent);
+
+  /* =========================================================
+     2. SEMANTIC TOKENS
+     ========================================================= */
+  --bg-canvas: var(--surface-400);
+  --bg-shell: var(--surface-200);
+  --bg-surface: var(--surface-100);
+  --bg-subtle: var(--surface-200);
+  --bg-fill: var(--surface-300);
+  --bg-fill-strong: var(--surface-400);
+  --bg-control-primary: var(--ink-900);
+  --bg-danger-subtle: var(--danger-100);
+  --bg-scrollbar-thumb: var(--surface-500);
+
+  --c-text: var(--ink-900);
+  --c-text-secondary: var(--ink-600);
+  --c-text-tertiary: var(--ink-400);
+  --c-text-inverse: var(--surface-100);
+  --c-danger: var(--danger-600);
+  --c-danger-hover: var(--danger-700);
+
+  --border-divider: var(--surface-300);
+  --border-muted: var(--surface-500);
+  --border-control: var(--ink-900);
+
+  /* =========================================================
+     3. TYPOGRAPHY (Major Third 1.25x, zero subpixels at 16/20/24px)
+     ========================================================= */
+  --font-sans:
+    "Geist", "Geist Sans", "GeistFallback", -apple-system, blinkmacsystemfont,
+    sans-serif;
+  --fw-regular: 400;
+  --lh-tight: 1.25;
+  --lh-base: 1.5;
+  --fs-sm: 0.75rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.25rem;
+
+  /* =========================================================
+     4. SPACING (4px grid), CONTROLS, CONCENTRIC RADII & LAYERS
+     ========================================================= */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-7: 1.75rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+
+  --control-h-xs: 1.5rem;
+  --control-h-sm: 2rem;
+  --control-h-md: 2.5rem;
+
+  /* Radius primitives (concentric containers compute R_outer = R_inner + --r-pad) */
+  --radius-unit: var(--space-1);
+  --radius-ctrl: calc(var(--radius-unit) * 2);
+  --radius-pill: 999rem;
+
+  --opacity-disabled: 0.38;
+  --opacity-primary-hover: 0.88;
+  --opacity-touch-hint: 0.75;
+
+  --z-dropdown: 50;
+  --z-overlay: 60;
+  --z-toast: 80;
+  --z-tooltip: 90;
+}

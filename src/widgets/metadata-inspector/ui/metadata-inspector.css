@@ -1,0 +1,443 @@
+.empty {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+  align-items: center;
+  padding: var(--space-6);
+  margin: auto;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.empty-copy {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.empty-formats {
+  color: var(--c-text-tertiary);
+}
+
+.file-head {
+  display: flex;
+  gap: var(--space-4);
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--r-main-pad);
+  border-bottom: 1px solid var(--border-divider);
+}
+
+.name-row {
+  display: flex;
+  flex: 1 1 auto;
+  gap: var(--space-3);
+  align-items: center;
+  min-width: 0;
+  max-width: 42rem;
+}
+
+.name-row .input-group {
+  max-width: 22rem;
+}
+
+#btnGenerateCsprng {
+  color: var(--c-text-secondary);
+}
+
+#btnGenerateCsprng:hover:not(:disabled) {
+  color: var(--c-text);
+}
+
+.head-actions {
+  display: flex;
+  flex-shrink: 0;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.meta-wrap {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  width: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.table-toolbar {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-3) var(--r-main-pad) var(--space-3) var(--space-5);
+  border-bottom: 1px solid var(--border-divider);
+}
+
+.toolbar-actions {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: space-between;
+  min-width: var(--head-actions-w, auto);
+}
+
+.toolbar-actions .ui-dropdown-sm {
+  flex: 1 1 auto;
+  width: auto;
+  min-width: 10rem;
+}
+
+.sel-all {
+  display: inline-flex;
+  gap: var(--space-4);
+  align-items: center;
+  font-size: var(--fs-md);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+}
+
+.state-pill {
+  padding: 0;
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-text-secondary);
+  background: transparent;
+}
+
+.tbl-scroll {
+  flex: 1 1 0;
+  min-height: 0;
+  padding-bottom: var(--space-6);
+  overflow: auto;
+  overscroll-behavior: contain;
+}
+
+.tbl-scroll.can-scroll-top,
+.tbl-scroll.can-scroll-bottom {
+  --scroll-mask: linear-gradient(
+    to bottom,
+    transparent 0,
+    black var(--fade-top, 0),
+    black calc(100% - var(--fade-bottom, 0px)),
+    transparent 100%
+  );
+  -webkit-mask-image: var(--scroll-mask);
+  mask-image: var(--scroll-mask);
+}
+
+.tbl-scroll.can-scroll-top {
+  --fade-top: var(--space-6);
+}
+
+.tbl-scroll.can-scroll-bottom {
+  --fade-bottom: var(--space-6);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+td {
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--fs-md);
+  vertical-align: middle;
+  border-bottom: none;
+}
+
+td.col-val > div {
+  min-height: var(--control-h-xs);
+}
+
+/* Axis 0: All checkboxes aligned on a single 20px left rail */
+td.col-chk {
+  width: 3rem;
+  padding-right: var(--space-3);
+  padding-left: var(--space-5);
+}
+
+/* Axis 1: Group headers and field labels share the exact same left edge */
+td.col-field {
+  width: 16rem;
+  padding-right: var(--space-4);
+  padding-left: var(--space-1);
+  font-size: var(--fs-sm);
+  color: var(--c-text-secondary);
+}
+
+/* Axis 2: Values aligned cleanly to the right of the label column */
+td.col-val {
+  padding-right: var(--space-5);
+  padding-left: var(--space-4);
+  font-size: var(--fs-md);
+  color: var(--c-text);
+}
+
+.table-empty-cell {
+  padding: var(--space-10) 0;
+  text-align: center;
+}
+
+/* Level 1: Section headers (divider sits between sections, not under heading) */
+tr.group-row td {
+  padding-top: var(--space-4);
+  padding-bottom: var(--space-2);
+  font-size: var(--fs-md);
+  color: var(--c-text);
+  background: transparent;
+  border-top: 1px solid var(--border-divider);
+  border-bottom: none;
+}
+
+tr.group-row td:nth-child(2) {
+  padding-left: var(--space-1);
+}
+
+tr.group-row td:last-child {
+  padding-right: var(--space-5);
+}
+
+tr.group-row:first-child td {
+  padding-top: var(--space-4);
+  border-top: none;
+}
+
+.group-head-inner {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.group-head-title {
+  color: var(--c-text);
+}
+
+.group-head-meta {
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-text-tertiary);
+}
+
+tr.group-row--toggleable {
+  cursor: pointer;
+  user-select: none;
+}
+
+tr.group-row--toggleable:hover td {
+  background: var(--bg-subtle);
+}
+
+tr.tag-row-toggleable td.col-chk,
+tr.tag-row-toggleable td.col-field {
+  cursor: pointer;
+  user-select: none;
+}
+
+/* Level 3: Sub-fields (raw GPS coordinates) — aligned on Axis 1 with muted label tone */
+tr.tag-row-sub td.col-field {
+  font-size: var(--fs-sm);
+  color: var(--c-text-tertiary);
+}
+
+/* Row status contrast: checked-for-removal rows telegraph intent immediately */
+tr.tag-row-remove td.col-val .val-text {
+  color: var(--c-text-tertiary);
+  text-decoration: line-through;
+  text-decoration-color: var(--border-muted);
+}
+
+tr.tag-row-keep td.col-field,
+tr.tag-row-keep td.col-val .val-text {
+  color: var(--c-text);
+}
+
+tr.tag-row.tag-row-edited td,
+tr:not(.group-row):hover td {
+  background: var(--bg-subtle);
+}
+
+.val-inline-btn {
+  height: var(--control-h-xs);
+  padding: 0 var(--space-2);
+}
+
+.val-inline-btn.btn--subtle {
+  color: var(--c-text-secondary);
+}
+
+.val-inline-btn.btn--subtle:hover:not(:disabled) {
+  color: var(--c-text);
+  background: var(--bg-fill-strong);
+}
+
+/* Keep nested tonal buttons and badges crisp on tinted edited/hovered rows */
+tr.tag-row-edited .val-inline-btn.btn--subtle,
+tr:not(.group-row):hover .val-inline-btn.btn--subtle {
+  background: var(--bg-surface);
+}
+
+tr.tag-row-edited .val-inline-btn.btn--subtle:hover:not(:disabled),
+tr:not(.group-row):hover .val-inline-btn.btn--subtle:hover:not(:disabled) {
+  background: var(--bg-fill);
+}
+
+tr.tag-row-edited .badge {
+  background: var(--bg-surface);
+}
+
+.val-content {
+  flex: 1 1 auto;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.val-actions {
+  flex: none;
+}
+
+.val-text--wrap {
+  word-break: break-word;
+  overflow-wrap: anywhere;
+}
+
+.val-text--truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.val-text--removed {
+  text-decoration: line-through;
+}
+
+.inline-edit-row {
+  flex-wrap: wrap;
+}
+
+.input-gps {
+  width: 9rem;
+}
+
+.btn-edit {
+  position: relative;
+  height: var(--control-h-xs);
+  padding: 0 var(--space-2);
+  color: var(--c-text-tertiary);
+  opacity: 0;
+}
+
+.btn-edit::after {
+  position: absolute;
+  inset: calc(var(--space-1) * -1);
+  content: "";
+}
+
+tr:hover .btn-edit,
+tr:focus-within .btn-edit,
+.btn-edit:focus-visible {
+  opacity: 1;
+}
+
+.btn-edit:hover:not(:disabled) {
+  color: var(--c-text);
+  background: var(--bg-fill);
+}
+
+.btn-edit svg {
+  width: 1em;
+  height: 1em;
+}
+
+@media (max-width: 960px) {
+  .meta-wrap,
+  .tbl-scroll {
+    flex: none;
+    overflow-y: visible;
+  }
+  td.col-field {
+    width: 13rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .file-head {
+    flex-wrap: wrap;
+  }
+  .name-row {
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: none;
+  }
+  .name-row .input-group {
+    flex: 1 1 calc(100% - 3.5rem);
+    max-width: none;
+  }
+  .head-actions {
+    width: 100%;
+  }
+  #btnApplyCurrent,
+  #btnDownloadCurrent {
+    flex: 1;
+  }
+  .table-toolbar {
+    padding: var(--space-3) var(--space-4);
+  }
+  .table-toolbar .sel-all {
+    width: 100%;
+  }
+  .table-toolbar .grow {
+    display: none;
+  }
+  .toolbar-actions {
+    flex-wrap: wrap;
+    width: 100%;
+    min-width: 0;
+  }
+  .table-toolbar .ui-dropdown {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  .toolbar-actions .btn-sm {
+    flex: 1 1 auto;
+  }
+  .input-gps {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+  table {
+    table-layout: fixed;
+  }
+  td.col-chk {
+    width: 2.5rem;
+    padding-right: var(--space-2);
+    padding-left: var(--space-4);
+  }
+  td.col-field {
+    width: 8.5rem;
+    padding-right: var(--space-2);
+    padding-left: var(--space-1);
+    overflow-wrap: anywhere;
+  }
+  td.col-val,
+  tr.group-row td:last-child {
+    padding-right: var(--space-4);
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .btn-edit {
+    opacity: var(--opacity-touch-hint);
+  }
+}

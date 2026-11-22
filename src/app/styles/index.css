@@ -1,0 +1,23 @@
+@layer reset, tokens, components, widgets, pages, utilities;
+
+@import "./fonts.css" layer(tokens);
+@import "./tokens.css" layer(tokens);
+@import "./base.css" layer(reset);
+
+@import "../../shared/ui/button/button.css" layer(components);
+@import "../../shared/ui/input/input.css" layer(components);
+@import "../../shared/ui/checkbox/checkbox.css" layer(components);
+@import "../../shared/ui/badge/badge.css" layer(components);
+@import "../../shared/ui/dropdown/dropdown.css" layer(components);
+@import "../../shared/ui/tooltip/tooltip.css" layer(components);
+@import "../../shared/ui/toast/toast.css" layer(components);
+@import "../../shared/ui/dialog/dialog.css" layer(components);
+
+@import "../../widgets/file-queue/ui/file-queue.css" layer(widgets);
+@import "../../widgets/metadata-inspector/ui/metadata-inspector.css"
+  layer(widgets);
+@import "../../widgets/batch-workspace/ui/batch-workspace.css" layer(widgets);
+@import "../../widgets/modals/ui/modals.css" layer(widgets);
+
+@import "../../pages/inspector/ui/inspector-page.css" layer(pages);
+@import "./utilities.css" layer(utilities);

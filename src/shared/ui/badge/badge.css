@@ -1,0 +1,36 @@
+.meta-pill,
+.badge {
+  display: inline-flex;
+  gap: var(--space-1);
+  align-items: center;
+  height: var(--control-h-xs);
+  padding: 0 var(--space-2);
+  font-size: var(--fs-sm);
+  line-height: 1;
+  color: var(--c-text-secondary);
+  white-space: nowrap;
+  background: transparent;
+  border: 1px solid var(--border-divider);
+  border-radius: var(--radius-unit);
+}
+
+.badge--pill {
+  border-radius: var(--radius-pill);
+}
+
+.badge--subtle {
+  background: var(--bg-subtle);
+  border-color: var(--border-divider);
+}
+
+.badge--primary {
+  color: var(--c-text-inverse);
+  background: var(--bg-control-primary);
+  border-color: var(--bg-control-primary);
+}
+
+.badge--danger {
+  color: var(--c-danger);
+  background: var(--bg-danger-subtle);
+  border-color: var(--bg-danger-subtle);
+}

@@ -1,0 +1,324 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.side-top {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  padding: 0 0 var(--space-3);
+  border: none;
+}
+
+/* Exact concentric inner arc with .app-shell: R_outer (32px) - pad (12px) = 20px */
+.side-add {
+  flex: 1;
+  border-radius: max(0px, calc(var(--r-outer) - var(--r-pad)));
+}
+
+.queue-bar {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: var(--space-2);
+  align-items: center;
+  padding: 0 0 var(--space-3);
+  user-select: none;
+}
+
+.queue-bar-left {
+  display: inline-flex;
+  grid-column: 1;
+  gap: var(--space-1);
+  align-items: center;
+  justify-self: start;
+}
+
+.queue-bar-count {
+  grid-column: 2;
+  justify-self: center;
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-text-tertiary);
+  text-align: center;
+  white-space: nowrap;
+}
+
+.queue-bar.queue-bar--single .queue-bar-count {
+  grid-column: 1;
+  justify-self: start;
+  padding-left: var(--space-2);
+  text-align: left;
+}
+
+.queue-bar-right {
+  display: inline-flex;
+  grid-column: 3;
+  gap: var(--space-1);
+  align-items: center;
+  justify-self: end;
+}
+
+.queue-mini-btn {
+  position: relative;
+  height: var(--control-h-xs);
+  padding: 0 var(--space-2);
+  font-size: var(--fs-sm);
+  border-radius: var(--radius-unit);
+}
+
+.queue-mini-btn::after {
+  position: absolute;
+  inset: calc(var(--space-1) * -1) 0;
+  content: "";
+}
+
+.queue {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 0;
+  padding: 0;
+  overflow: hidden auto;
+  overscroll-behavior: contain;
+}
+
+.queue.has-scroll {
+  padding-right: var(--space-2);
+}
+
+.queue.can-scroll-top,
+.queue.can-scroll-bottom {
+  --scroll-mask: linear-gradient(
+    to bottom,
+    transparent 0,
+    black var(--fade-top, 0),
+    black calc(100% - var(--fade-bottom, 0px)),
+    transparent 100%
+  );
+  -webkit-mask-image: var(--scroll-mask);
+  mask-image: var(--scroll-mask);
+}
+
+.queue.can-scroll-top {
+  --fade-top: var(--space-6);
+}
+
+.queue.can-scroll-bottom {
+  --fade-bottom: var(--space-10);
+}
+
+.side-credit {
+  flex-shrink: 0;
+  padding: var(--space-2) var(--space-2) 0 0;
+  font-size: var(--fs-sm);
+  line-height: var(--lh-tight);
+  color: var(--c-text-tertiary);
+  text-align: right;
+  user-select: none;
+}
+
+.queue-empty {
+  padding: var(--space-10) var(--space-4);
+  font-size: var(--fs-sm);
+  color: var(--c-text-tertiary);
+  text-align: center;
+  background: transparent;
+}
+
+/* Concentric pair: .queue-item wraps .thumb-box & .queue-item-remove (R_inner = 4px + pad = 12px -> 16px) */
+.queue-item {
+  --r-pad: var(--space-3);
+  --r-outer: calc(var(--radius-unit) + var(--r-pad));
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  contain-intrinsic-size: auto 4rem;
+  padding: var(--r-pad) var(--space-3);
+  content-visibility: auto;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  border-radius: var(--r-outer);
+}
+
+.queue-item:hover {
+  background: var(--bg-fill);
+}
+
+.queue-item:active {
+  background: var(--bg-fill-strong);
+}
+
+.queue-item.active,
+.queue-item.checked {
+  background: var(--bg-surface);
+}
+
+.queue-item:focus-visible {
+  outline: 2px solid var(--border-control);
+  outline-offset: -2px;
+}
+
+.queue-item-head {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+}
+
+.queue-item-main {
+  display: flex;
+  flex: 1 1 0;
+  gap: var(--space-3);
+  align-items: center;
+  min-width: 0;
+}
+
+.queue-item-chk {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.queue-item-chk::after {
+  position: absolute;
+  inset: calc(var(--space-2) * -1);
+  content: "";
+}
+
+.queue-item:not(.active):not(.checked)
+  .queue-item-chk:not(:checked):not(:indeterminate) {
+  background: var(--bg-fill-strong);
+}
+
+.queue-item:not(.active):not(.checked)
+  .queue-item-chk:not(:checked):not(:indeterminate):hover:not(:disabled) {
+  background: var(--border-muted);
+}
+
+.queue-item-titles {
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  gap: var(--space-1);
+  justify-content: center;
+  min-width: 0;
+}
+
+.queue-item-titles .t-info {
+  font-size: var(--fs-md);
+  line-height: var(--lh-tight);
+}
+
+.queue-item-tags {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: var(--space-2);
+  align-items: center;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  line-height: var(--lh-tight);
+}
+
+.queue-item-tags .meta-pill {
+  height: auto;
+  padding: 0;
+  font-size: var(--fs-sm);
+  font-variant-numeric: tabular-nums;
+  color: var(--c-text-tertiary);
+  background: transparent;
+  border: none;
+}
+
+.queue-item-tags .meta-pill:first-child {
+  flex-shrink: 0;
+  color: var(--c-text-secondary);
+}
+
+.queue-item-tags .meta-pill:not(:first-child) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.thumb-box {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--bg-fill);
+  border: 1px solid var(--border-divider);
+  border-radius: max(0px, calc(var(--r-outer) - var(--r-pad)));
+}
+
+.thumb-sm {
+  width: var(--control-h-md);
+  height: var(--control-h-md);
+}
+
+.queue-item-failed .thumb-box {
+  background: var(--bg-danger-subtle);
+  border-color: var(--bg-danger-subtle);
+}
+
+.queue-item-failed .thumb-box .t-sub,
+.queue-item-failed .queue-item-tags .meta-pill:first-child {
+  color: var(--c-danger);
+}
+
+.queue-item-remove {
+  color: var(--c-text-tertiary);
+  border-radius: max(0px, calc(var(--r-outer) - var(--r-pad)));
+  opacity: 0;
+}
+
+.queue-item-remove:focus-visible,
+.queue-item-failed .queue-item-remove,
+.queue-item:hover .queue-item-remove,
+.queue-item.active .queue-item-remove,
+.queue-item.checked .queue-item-remove {
+  opacity: 1;
+}
+
+.queue-item-remove:hover:not(:disabled) {
+  color: var(--c-text);
+  background: var(--bg-fill);
+}
+
+.queue-item .truncate {
+  display: block;
+}
+
+.thumb-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 960px) {
+  .queue {
+    max-height: 14rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .side-add {
+    border-radius: var(--radius-ctrl);
+  }
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .queue-item-remove {
+    opacity: var(--opacity-touch-hint);
+  }
+}

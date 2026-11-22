@@ -1,0 +1,95 @@
+.field-tag-id {
+  width: 11rem;
+}
+
+.preview-img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: 22rem;
+  overflow: hidden;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-ctrl);
+}
+
+.preview-img-container img {
+  display: block;
+  max-width: 100%;
+  max-height: 22rem;
+  object-fit: contain;
+}
+
+.overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-overlay);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--c-text-inverse);
+  pointer-events: none;
+  background: var(--scrim-overlay);
+  opacity: 0;
+}
+
+.overlay-backdrop.active {
+  pointer-events: auto;
+  opacity: 1;
+}
+
+.drop-overlay-card {
+  display: inline-flex;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-4) var(--space-6);
+  font-size: var(--fs-md);
+  color: var(--c-text);
+  user-select: none;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-divider);
+  border-radius: calc(var(--radius-unit) + var(--space-3));
+}
+
+/* Concentric pair: .batch-bar wraps #batchStop (.btn-sm) (R_inner = 8px + pad = 12px -> 20px) */
+.batch-bar {
+  --r-pad: var(--space-3);
+  --r-outer: calc(var(--radius-ctrl) + var(--r-pad));
+  position: fixed;
+  bottom: var(--space-6);
+  left: 50%;
+  z-index: var(--z-overlay);
+  display: none;
+  gap: var(--space-4);
+  align-items: center;
+  min-width: 18rem;
+  max-width: calc(100dvw - var(--space-8));
+  padding: var(--r-pad) var(--space-4);
+  color: var(--c-text);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-divider);
+  border-radius: var(--r-outer);
+  transform: translateX(-50%);
+}
+
+.batch-bar.visible {
+  display: flex;
+}
+
+.batch-bar .btn-sm {
+  border-radius: max(0px, calc(var(--r-outer) - var(--r-pad)));
+}
+
+.batch-bar-track {
+  height: var(--space-1);
+  margin-top: var(--space-2);
+  overflow: hidden;
+  background: var(--bg-subtle);
+  border-radius: var(--radius-pill);
+}
+
+.batch-bar-fill {
+  width: 0;
+  height: var(--space-1);
+  background: var(--bg-control-primary);
+}

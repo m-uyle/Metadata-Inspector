@@ -1,0 +1,26 @@
+# Dependencies & build
+node_modules/
+dist/
+
+# OS & Logs
+.DS_Store
+Thumbs.db
+*.log
+
+# Editor & workspace
+.vscode/
+
+# Audit, linter, architecture & development documentation
+.dependency-cruiser.cjs
+.oxfmtrc.json
+.oxlintrc.json
+ARCHITECTURE.md
+DESIGN-SYSTEM.md
+WEB_DEV/
+biome.jsonc
+knip.jsonc
+steiger.config.js
+stylelint.config.mjs
+tsconfig.json
+favicon.svg
+clean-package/

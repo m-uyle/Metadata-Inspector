@@ -1,0 +1,55 @@
+.tag-chk {
+  display: inline-grid;
+  flex-shrink: 0;
+  place-content: center;
+  width: var(--space-4);
+  height: var(--space-4);
+  margin: 0;
+  vertical-align: middle;
+  appearance: none;
+  cursor: pointer;
+  background: var(--bg-fill);
+  border: none;
+  border-radius: var(--radius-unit);
+}
+
+.tag-chk:hover:not(:disabled) {
+  background: var(--bg-fill-strong);
+}
+
+.tag-chk:checked,
+.tag-chk:indeterminate {
+  background: var(--bg-fill-strong);
+}
+
+.tag-chk:checked:hover:not(:disabled),
+.tag-chk:indeterminate:hover:not(:disabled),
+.tag-chk:active:not(:disabled) {
+  background: var(--border-muted);
+}
+
+.tag-chk:checked::before {
+  width: 0.75rem;
+  height: 0.75rem;
+  content: "";
+  background: var(--c-text);
+  -webkit-mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.25 6.25L4.75 8.75L9.75 3.5' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+  mask:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M2.25 6.25L4.75 8.75L9.75 3.5' fill='none' stroke='%23000' stroke-width='1.75' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
+    center / contain no-repeat;
+}
+
+.tag-chk:indeterminate::before {
+  width: 0.5rem;
+  height: 2px;
+  content: "";
+  background: var(--c-text);
+  border-radius: 1px;
+}
+
+.tag-chk:disabled {
+  cursor: not-allowed;
+  opacity: var(--opacity-disabled);
+}

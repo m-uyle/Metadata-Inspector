@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Metadata Inspector</title>
+    <meta
+      content="Lossless client-side image metadata inspector, editor, and scrubber."
+      name="description"
+    >
+    <meta content="Metadata Inspector" property="og:title">
+    <meta
+      content="Lossless client-side image metadata inspector, editor, and scrubber."
+      property="og:description"
+    >
+    <meta content="website" property="og:type">
+    <meta content="./og-image.png" property="og:image">
+    <meta content="1200" property="og:image:width">
+    <meta content="630" property="og:image:height">
+    <meta content="summary_large_image" name="twitter:card">
+    <meta content="Metadata Inspector" name="twitter:title">
+    <meta
+      content="Lossless client-side image metadata inspector, editor, and scrubber."
+      name="twitter:description"
+    >
+    <meta content="./og-image.png" name="twitter:image">
+    <meta content="light" name="color-scheme">
+    <meta content="no-referrer" name="referrer">
+    <meta
+      content="default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; img-src 'self' blob: data:; worker-src 'self' blob:; connect-src 'self' ws://localhost:* http://localhost:* ws://127.0.0.1:* http://127.0.0.1:*; font-src 'self' data:;"
+      http-equiv="Content-Security-Policy"
+    >
+    <meta
+      content="camera=(), microphone=(), geolocation=(), payment=()"
+      http-equiv="Permissions-Policy"
+    >
+    <meta content="#d5d4d0" name="theme-color">
+    <link href="./favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="./apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="./site.webmanifest" rel="manifest">
+    <link href="./src/app/styles/index.css" rel="stylesheet">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        "name": "Metadata Inspector",
+        "description": "Lossless client-side image metadata inspector, editor, and scrubber.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript and HTML5",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <noscript>
+      <p class="noscript-notice">
+        This tool needs JavaScript. It works offline and never uploads files.
+      </p>
+    </noscript>
+    <div id="app"></div>
+    <script src="./src/main.js" type="module"></script>
+  </body>
+</html>

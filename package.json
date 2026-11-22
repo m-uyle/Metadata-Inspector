@@ -1,0 +1,19 @@
+{
+  "name": "metadata-inspector",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Client-side lossless image metadata inspector, scrubber, and editor powered by built-in binary engine + ExifTool WASM.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@uswriting/exiftool": "^1.0.9"
+  },
+  "devDependencies": {
+    "vite": "^6.2.0"
+  }
+}
